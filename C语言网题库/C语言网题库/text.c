@@ -124,3 +124,139 @@ int main()
 	
 	return 0;
 }
+
+
+
+//题目 1006: [编程入门] 三个数找最大值
+//有三个整数a b c, 由键盘输入，输出其中的最大的数。
+
+int main()
+{
+	int a = 0;
+	int c = 0;
+	int b = 0;
+	scanf("%d%d%d", &a, &b, &c);
+	if (a >= b)
+	{
+		if (a >= c)
+		{
+			printf("%d", a);
+		}
+		else
+		{
+			printf("%d", c);
+		}
+	}
+	else
+	{
+		if (b >= c)
+			printf("%d", b);
+		else
+			printf("%d", c);
+	}
+
+	return 0;
+}
+
+
+//题目 1007: [编程入门] 分段函数求值
+
+#include<stdio.h>
+int main()
+{
+    int a = 0;
+    scanf("%d", &a);
+    if (a < 1)
+        printf("%d", a);
+    else if (a >= 10)
+        printf("%d", 3*a - 11);
+    else
+        printf("%d", 2*a - 1);
+
+    return 0;
+}
+
+
+//题目 1008: [编程入门] 成绩评定
+
+#include<stdio.h>
+int main()
+{
+    int a = 0;
+    scanf("%d", &a);
+    if (a >= 90)
+        printf("A");
+    else if (a >= 80)
+        printf("B");
+    else if (a >= 70)
+        printf("C");
+    else if (a >= 60)
+        printf("D");
+    else
+        printf("E");
+    return 0;
+
+}
+
+
+////题目 1084: 用筛法求之N内的素数。
+//
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int a = 0;
+    int b = 0;
+    int i = 0;
+    int count = 0;
+    scanf("%d", &a);
+    for (i = 2; i <= a; i++)
+    {
+        count = 0;
+        for (b = 2; b <= sqrt(i); b++)
+        {
+            if (i % b == 0)
+            {
+                count++;
+            }
+        }
+        if (count == 0)
+            printf("%d\n", i);
+    }
+
+    return 0;
+}
+
+
+//题目 1093: 字符逆序    将一个字符串str的内容颠倒过来，并输出。str的长度不超过100个字符。   其中会有空格的输入
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int a = 0;
+    int i = 0;
+    char str[100] = { '\0' };
+    char b = ' ';
+    char str2[100] = { '\0' };
+    scanf("%[^\n]", str);//重点是"%[^\n]"!!!   意思是除了换行符以外的字符全部接收
+    i = strlen(str);
+
+    for (a = 0; a < i ; a++)//第一种逆序方式
+    {
+        str2[a] = str[i - 1 - a];
+    }
+    printf("%s", str2);
+
+
+
+    for (a = 0; a < i / 2; a++)//第二种逆序方式
+    {
+        b = str[a];
+        str[a] = str[i - a - 1];
+        str[i - a - 1] = b;
+    }
+    printf("%s", str);
+
+    return 0;
+}
