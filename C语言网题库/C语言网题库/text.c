@@ -260,3 +260,79 @@ int main()
 
     return 0;
 }
+
+
+//题目 1097: 蛇行矩阵
+//蛇形矩阵是由1开始的自然数依次排列成的一个矩阵上三角形。
+
+#include<stdio.h>
+int main()
+{
+    int a = 1;
+    int arr[5][5] = { 0 };
+    int i = 0;
+    int j = 0;
+    int sum = 0;
+    for (sum = 0; sum <= 5; sum++)
+    {
+        for (i = sum, j = 0; i >= 0 && j <= sum, i--; j++)//这种结构是我想不到的
+        {
+            arr[i][j] = a;
+            a++;
+        }
+    }
+    for (i = 0; i < 5; i++)
+    {
+        for (j = 0; j < 5 - i; j++)
+        {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+//题目 1115: DNA
+int main()
+{
+    
+    int i = 0;
+    int j = 0;
+    char arr[5][5];
+    for (i = 0; i < 5; i++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            if (i == j || i + j == 4)
+                arr[i][j] = 'X';
+            else
+                arr[i][j] = ' ';
+        }
+    }
+    for (i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            printf("%c", arr[i][j]);
+        }
+        printf("\n");
+    }
+    for (int a = 0; a < 3; a++)
+    {
+        for (i = 1; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                printf("%c", arr[i][j]);
+            }
+            printf("\n");
+        }
+    }
+    
+
+    return 0;
+}
+
+
